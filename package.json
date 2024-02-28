@@ -1,0 +1,34 @@
+{
+  "name": "github-react-repo-card",
+  "version": "0.0.1",
+  "description": "A React component for the GitHub repository card",
+  "main": "dist/index.js",
+  "author": "a3510377 <a102009102009@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@octokit/openapi-types": "^20.0.0",
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-interactions": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/addon-onboarding": "1.0.11",
+    "@storybook/blocks": "^7.6.17",
+    "@storybook/react": "^7.6.17",
+    "@storybook/react-vite": "^7.6.17",
+    "@storybook/test": "^7.6.17",
+    "@types/react": "^18.2.60",
+    "@types/react-dom": "^18.2.19",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.6.17",
+    "styled-components": "^6.1.8",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.4"
+  },
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "resolutions": {
+    "jackspeak": "2.1.1"
+  }
+}
