@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import RepoCard, { RepoCardProps } from '.';
 import { JSX } from 'react';
+import RepoCard, { RepoCardProps } from '.';
 
 export const RepoCardExample: StoryObj<RepoCardProps> = (
   args: JSX.IntrinsicAttributes & RepoCardProps,
