@@ -3,7 +3,7 @@ import RepoCard, { RepoCardProps } from '.';
 import { JSX } from 'react';
 
 export const RepoCardExample: StoryObj<RepoCardProps> = (
-  args: JSX.IntrinsicAttributes & RepoCardProps
+  args: JSX.IntrinsicAttributes & RepoCardProps,
 ) => (
   <div
     style={{

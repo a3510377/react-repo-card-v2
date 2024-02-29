@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "outDir": "lib",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": ["es2020", "dom"],
     "declaration": true,
     "declarationDir": "lib",
     "allowJs": true,
@@ -16,8 +16,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "preserve",
+    "types": ["node", "react"]
   },
   "include": ["src", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
+
