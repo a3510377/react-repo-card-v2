@@ -1,5 +1,5 @@
 {
-  "name": "github-react-repo-card",
+  "name": "react-repo-card-v2",
   "version": "0.0.1",
   "description": "A React component for the GitHub repository card",
   "main": "dist/index.js",
