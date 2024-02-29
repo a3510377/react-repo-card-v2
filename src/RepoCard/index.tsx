@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { CodeIcon, ForkIcon, IssueIcon, LicenseIcon, StarIcon } from './icon';
-import { LangColor } from './constants';
-import { TMinimalRepository } from './types';
+import { CodeIcon, ForkIcon, IssueIcon, LicenseIcon, StarIcon } from '../icon';
+import { LangColor } from '../constants';
+import { TMinimalRepository } from '../types';
 
 const RepoContainer = styled.div<{ $darkMode?: boolean }>`
   border: 1px solid ${(props) => (props.$darkMode ? '#343a40' : '#e1e4e8')};

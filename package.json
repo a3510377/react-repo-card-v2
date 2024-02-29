@@ -6,8 +6,18 @@
   "author": "a3510377 <a102009102009@gmail.com>",
   "license": "MIT",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
+    "@babel/preset-env": "^7.24.0",
+    "@babel/preset-react": "^7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
     "@octokit/openapi-types": "^20.0.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
     "@storybook/addon-essentials": "^7.6.17",
     "@storybook/addon-interactions": "^7.6.17",
     "@storybook/addon-links": "^7.6.17",
@@ -30,6 +40,13 @@
     "prettier": "3.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rollup": "^4.12.0",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.36.0",
     "storybook": "^7.6.17",
     "styled-components": "^6.1.8",
     "typescript": "^5.3.3",
@@ -41,7 +58,9 @@
     "lint": "eslint --fix --ext=js,jsx,ts,tsx src/",
     "lint:check": "eslint --ext=js,jsx,ts,tsx src/",
     "format": "prettier . --write --ignore-unknown",
-    "format:check": "prettier . --check --ignore-unknown"
+    "format:check": "prettier . --check --ignore-unknown",
+    "build:rollup": "rollup -wc rollup.config.js --bundleConfigAsCjs",
+    "build": "tsc"
   },
   "resolutions": {
     "jackspeak": "2.1.1"

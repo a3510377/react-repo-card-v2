@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "outDir": "lib",
+    "outDir": "./dist",
     "lib": ["es2020", "dom"],
     "declaration": true,
-    "declarationDir": "lib",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -15,10 +14,10 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "preserve",
-    "types": ["node", "react"]
+    "types": ["node", "react"],
+    "downlevelIteration": true
   },
-  "include": ["src", "**/*.ts", "**/*.tsx"],
+  "include": ["./src/**/*"],
   "exclude": ["node_modules"]
 }
