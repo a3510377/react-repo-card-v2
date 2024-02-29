@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
-import RepoCard, { RepoCordProps } from '.';
+import RepoCard, { RepoCardProps } from '.';
+import { JSX } from 'react';
 
-export const RepoCardExample: StoryObj<RepoCordProps> = (args) => (
+export const RepoCardExample: StoryObj<RepoCardProps> = (args: JSX.IntrinsicAttributes & RepoCardProps) => (
   <div
     style={{
       position: 'absolute',
@@ -18,6 +18,15 @@ export const RepoCardExample: StoryObj<RepoCordProps> = (args) => (
 );
 
 RepoCardExample.args = {
+  darkMode: false,
+  showUpdatedAt: true,
+  showCodeLanguage: true,
+  showIssues: true,
+  showLicense: true,
+  showStars: true,
+  showForks: true,
+  showCodeColorBar: true,
+  repoInfoColor: '#a0a0a0',
   repository: {
     id: 518780742,
     node_id: 'R_kgDOHuv3Rg',
