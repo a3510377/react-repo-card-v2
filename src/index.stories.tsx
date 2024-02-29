@@ -2,7 +2,9 @@ import { Meta, StoryObj } from '@storybook/react';
 import RepoCard, { RepoCardProps } from '.';
 import { JSX } from 'react';
 
-export const RepoCardExample: StoryObj<RepoCardProps> = (args: JSX.IntrinsicAttributes & RepoCardProps) => (
+export const RepoCardExample: StoryObj<RepoCardProps> = (
+  args: JSX.IntrinsicAttributes & RepoCardProps
+) => (
   <div
     style={{
       position: 'absolute',

@@ -1,0 +1,5 @@
+enable: true
+tabWidth: 2
+semi: true
+singleQuote: true
+useEditorConfig: true

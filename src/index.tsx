@@ -2,19 +2,20 @@ import { FC } from 'react';
 import styled from 'styled-components';
 
 import { CodeIcon, ForkIcon, IssueIcon, LicenseIcon, StarIcon } from './icon';
-import { LangColor } from "./constants";
-import { IMinimalRepository } from './types';
+import { LangColor } from './constants';
+import { TMinimalRepository } from './types';
 
 const RepoContainer = styled.div<{ $darkMode?: boolean }>`
-  border: 1px solid ${props => props.$darkMode ? '#343a40' : '#e1e4e8'};
-  background-color: ${props => props.$darkMode ? '#282c34' : 'white'};
-  color: ${props => props.$darkMode ? 'white' : 'black'};
+  border: 1px solid ${(props) => (props.$darkMode ? '#343a40' : '#e1e4e8')};
+  background-color: ${(props) => (props.$darkMode ? '#282c34' : 'white')};
+  color: ${(props) => (props.$darkMode ? 'white' : 'black')};
   border-radius: 6px;
   padding: 16px;
   transition: box-shadow 0.2s ease-in-out;
 
   &:hover {
-    box-shadow: 0 2px 5px 0 ${props => props.$darkMode ? '#343a40' : '#e1e4e8'};
+    box-shadow: 0 2px 5px 0
+      ${(props) => (props.$darkMode ? '#343a40' : '#e1e4e8')};
   }
 
   a {
@@ -33,7 +34,7 @@ const RepoTitle = styled.div`
 const RepoSubtitle = styled.div`
   font-size: 16px;
   margin-bottom: 16px;
-  
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -56,7 +57,7 @@ const RepoInfo = styled.div`
 `;
 
 const RepoInfoText = styled.span<{ $textColor?: string }>`
-  color: ${props => props.$textColor || 'black'};
+  color: ${(props) => props.$textColor || 'black'};
   margin-left: 4px;
 `;
 
@@ -67,14 +68,14 @@ const LastUpdateText = styled(RepoInfoText)`
 const CodeLanguageColorBar = styled.div<{ $langColor?: string }>`
   width: 100%;
   height: 10px;
-  background-color: ${props => props.$langColor || 'transparent'};
+  background-color: ${(props) => props.$langColor || 'transparent'};
   position: relative;
 `;
 
 const UpdatedAtContainer = styled.div`
   font-size: 12px;
   margin-bottom: 8px;
-  
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -84,7 +85,7 @@ const UpdatedAtContainer = styled.div`
  * The props for the RepoCard component.
  */
 export interface RepoCardProps {
-  repository: IMinimalRepository;
+  repository: TMinimalRepository;
   showCodeLanguage?: boolean;
   showLicense?: boolean;
   showIssues?: boolean;
@@ -98,7 +99,7 @@ export interface RepoCardProps {
 
 /**
  * The RepoCard component displays information about a GitHub repository.
- * @param repository {IMinimalRepository} - The repository object to display.
+ * @param repository {TMinimalRepository} - The repository object to display.
  * @param showCodeLanguage {boolean} - Whether to show the repository's code language.
  * Defaults to true.
  * @param showLicense {boolean} - Whether to show the repository's license.
@@ -119,74 +120,94 @@ export interface RepoCardProps {
  * Defaults to false.
  * @constructor - The constructor for the RepoCard component.
  */
-export const RepoCard: FC<RepoCardProps> = (
-  {
-    repository,
-    showCodeLanguage = true,
-    showLicense = true,
-    showIssues = true,
-    showStars = true,
-    showForks = true,
-    showUpdatedAt = true,
-    showCodeColorBar = true,
-    repoInfoColor = 'grey',
-    darkMode = false,
-  }: RepoCardProps) => {
+export const RepoCard: FC<RepoCardProps> = ({
+  repository,
+  showCodeLanguage = true,
+  showLicense = true,
+  showIssues = true,
+  showStars = true,
+  showForks = true,
+  showUpdatedAt = true,
+  showCodeColorBar = true,
+  repoInfoColor = 'grey',
+  darkMode = false,
+}: RepoCardProps) => {
   const updatedAt = new Intl.DateTimeFormat('default', {
-    year: 'numeric', month: 'short', day: 'numeric',
-    hour: '2-digit', minute: '2-digit', second: '2-digit'
-  }).format(new Date(repository.updated_at));
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  }).format(new Date(repository.updated_at || new Date()));
 
   return (
     <RepoContainer $darkMode={darkMode}>
       <a href={repository.html_url} target="_blank" rel="noopener noreferrer">
         <RepoTitle>{repository.name}</RepoTitle>
-        <RepoSubtitle>{repository.description || "No description provided."}</RepoSubtitle>
+        <RepoSubtitle>
+          {repository.description || 'No description provided.'}
+        </RepoSubtitle>
         {showUpdatedAt && (
           <UpdatedAtContainer>
-            <LastUpdateText $textColor={repoInfoColor}>Updated: {updatedAt}</LastUpdateText>
+            <LastUpdateText $textColor={repoInfoColor}>
+              Updated: {updatedAt}
+            </LastUpdateText>
           </UpdatedAtContainer>
         )}
-        {
-          (showCodeLanguage || showLicense || showIssues || showStars || showForks) && (
-            <RepoInfoContainer>
-              {showCodeLanguage && (
-                <RepoInfo>
-                  <CodeIcon fill={repoInfoColor}/>
-                  <RepoInfoText $textColor={repoInfoColor}>{repository.language || "Unknown"}</RepoInfoText>
-                </RepoInfo>
-              )}
-              {showLicense && (
-                <RepoInfo>
-                  <LicenseIcon fill={repoInfoColor}/>
-                  <RepoInfoText
-                    $textColor={repoInfoColor}>{repository.license?.name || "No license specified"}</RepoInfoText>
-                </RepoInfo>
-              )}
-              {showIssues && (
-                <RepoInfo>
-                  <IssueIcon fill={repoInfoColor}/>
-                  <RepoInfoText $textColor={repoInfoColor}>{repository.open_issues_count}</RepoInfoText>
-                </RepoInfo>
-              )}
-              {showStars && (
-                <RepoInfo>
-                  <StarIcon fill={repoInfoColor}/>
-                  <RepoInfoText $textColor={repoInfoColor}>{repository.stargazers_count}</RepoInfoText>
-                </RepoInfo>
-              )}
-              {showForks && (
-                <RepoInfo>
-                  <ForkIcon fill={repoInfoColor}/>
-                  <RepoInfoText $textColor={repoInfoColor}>{repository.forks_count}</RepoInfoText>
-                </RepoInfo>
-              )}
-            </RepoInfoContainer>
-          )
-        }
-        {showCodeColorBar &&
-            <CodeLanguageColorBar $langColor={LangColor[repository.language]}/>
-        }
+        {(showCodeLanguage ||
+          showLicense ||
+          showIssues ||
+          showStars ||
+          showForks) && (
+          <RepoInfoContainer>
+            {showCodeLanguage && (
+              <RepoInfo>
+                <CodeIcon fill={repoInfoColor} />
+                <RepoInfoText $textColor={repoInfoColor}>
+                  {repository.language || 'Unknown'}
+                </RepoInfoText>
+              </RepoInfo>
+            )}
+            {showLicense && (
+              <RepoInfo>
+                <LicenseIcon fill={repoInfoColor} />
+                <RepoInfoText $textColor={repoInfoColor}>
+                  {repository.license?.name || 'No license specified'}
+                </RepoInfoText>
+              </RepoInfo>
+            )}
+            {showIssues && (
+              <RepoInfo>
+                <IssueIcon fill={repoInfoColor} />
+                <RepoInfoText $textColor={repoInfoColor}>
+                  {repository.open_issues_count}
+                </RepoInfoText>
+              </RepoInfo>
+            )}
+            {showStars && (
+              <RepoInfo>
+                <StarIcon fill={repoInfoColor} />
+                <RepoInfoText $textColor={repoInfoColor}>
+                  {repository.stargazers_count}
+                </RepoInfoText>
+              </RepoInfo>
+            )}
+            {showForks && (
+              <RepoInfo>
+                <ForkIcon fill={repoInfoColor} />
+                <RepoInfoText $textColor={repoInfoColor}>
+                  {repository.forks_count}
+                </RepoInfoText>
+              </RepoInfo>
+            )}
+          </RepoInfoContainer>
+        )}
+        {showCodeColorBar && repository.language && (
+          <CodeLanguageColorBar
+            $langColor={LangColor[repository.language] || void 0}
+          />
+        )}
       </a>
     </RepoContainer>
   );

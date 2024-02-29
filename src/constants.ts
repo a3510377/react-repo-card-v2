@@ -1,4 +1,4 @@
-export const LangColor = {
+export const LangColor: { [lang: string]: string | null | undefined } = {
   '1C Enterprise': '#814CCC',
   '2-Dimensional Array': '#38761D',
   '4D': '#004289',
