@@ -24,15 +24,19 @@ const RepoContainer = styled.div<{ $darkMode?: boolean }>`
 `;
 
 const RepoTitle = styled.div`
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   margin-bottom: 8px;
   display: block;
 `;
 
 const RepoSubtitle = styled.div`
-  font-size: 12px;
-  margin-bottom: 8px;
+  font-size: 16px;
+  margin-bottom: 16px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const RepoInfoContainer = styled.div`
@@ -94,24 +98,24 @@ export interface RepoCardProps {
 
 /**
  * The RepoCard component displays information about a GitHub repository.
- * @param repository - The repository object to display.
- * @param showCodeLanguage - Whether to show the repository's code language.
+ * @param repository {IMinimalRepository} - The repository object to display.
+ * @param showCodeLanguage {boolean} - Whether to show the repository's code language.
  * Defaults to true.
- * @param showLicense - Whether to show the repository's license.
+ * @param showLicense {boolean} - Whether to show the repository's license.
  * Defaults to true.
- * @param showIssues - Whether to show the repository's open issues count.
+ * @param showIssues {boolean} - Whether to show the repository's open issues count.
  * Defaults to true.
- * @param showStars - Whether to show the repository's star count.
+ * @param showStars {boolean} - Whether to show the repository's star count.
  * Defaults to true.
- * @param showForks - Whether to show the repository's fork count.
+ * @param showForks {boolean} - Whether to show the repository's fork count.
  * Defaults to true.
- * @param showUpdatedAt - Whether to show the repository's last updated date.
+ * @param showUpdatedAt {boolean} - Whether to show the repository's last updated date.
  * Defaults to true.
- * @param showCodeColorBar - Whether to show the code language color bar.
+ * @param showCodeColorBar {boolean} - Whether to show the code language color bar.
  * Defaults to true.
- * @param repoInfoColor - The color of the repository information text.
+ * @param repoInfoColor {boolean} - The color of the repository information text.
  * Defaults to 'grey'.
- * @param darkMode - Whether to use dark mode.
+ * @param darkMode {boolean} - Whether to use dark mode.
  * Defaults to false.
  * @constructor - The constructor for the RepoCard component.
  */
@@ -127,7 +131,7 @@ export const RepoCard: FC<RepoCardProps> = (
     showCodeColorBar = true,
     repoInfoColor = 'grey',
     darkMode = false,
-  }) => {
+  }: RepoCardProps) => {
   const updatedAt = new Intl.DateTimeFormat('default', {
     year: 'numeric', month: 'short', day: 'numeric',
     hour: '2-digit', minute: '2-digit', second: '2-digit'
@@ -144,7 +148,7 @@ export const RepoCard: FC<RepoCardProps> = (
           </UpdatedAtContainer>
         )}
         {
-          showCodeLanguage && showLicense && showIssues && showStars && showForks && (
+          (showCodeLanguage || showLicense || showIssues || showStars || showForks) && (
             <RepoInfoContainer>
               {showCodeLanguage && (
                 <RepoInfo>
