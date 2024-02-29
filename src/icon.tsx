@@ -10,7 +10,7 @@ export const ForkIcon = ({
   width = 16,
   height = 16,
   fill = 'black',
-}): JSX.Element => (
+}: SvgProps): JSX.Element => (
   <svg version="1.1" viewBox="0 0 16 16" width={width} height={height}>
     <path
       fill={fill}
@@ -23,7 +23,7 @@ export const StarIcon = ({
   width = 16,
   height = 16,
   fill = 'black',
-}): JSX.Element => (
+}: SvgProps): JSX.Element => (
   <svg aria-hidden="true" viewBox="0 0 16 16" width={width} height={height}>
     <path
       fill={fill}
@@ -36,7 +36,7 @@ export const CodeIcon = ({
   width = 16,
   height = 16,
   fill = 'black',
-}): JSX.Element => (
+}: SvgProps): JSX.Element => (
   <svg viewBox="0 0 16 16" version="1.1" width={width} height={height}>
     <path
       fill={fill}
@@ -49,7 +49,7 @@ export const IssueIcon = ({
   width = 16,
   height = 16,
   fill = 'black',
-}): JSX.Element => (
+}: SvgProps): JSX.Element => (
   <svg
     aria-hidden="true"
     viewBox="0 0 16 16"
@@ -69,7 +69,7 @@ export const LicenseIcon = ({
   width = 16,
   height = 16,
   fill = 'black',
-}): JSX.Element => (
+}: SvgProps): JSX.Element => (
   <svg
     aria-hidden="true"
     viewBox="0 0 16 16"
