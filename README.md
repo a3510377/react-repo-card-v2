@@ -27,9 +27,11 @@ import { RepoCard } from 'react-repo-card-v2';
 ```
 
 ## Direct API Use
+
 The RepoCard component is designed to seamlessly integrate with the GitHub Repository API. You can directly pass the JSON response from the GitHub API to the repository prop of the RepoCard. This makes it incredibly easy to display repository information fetched from GitHub.
 
 For example, after fetching data from the GitHub API:
+
 ```jsx
 <RepoCard
   repository={{
@@ -57,18 +59,18 @@ For example, after fetching data from the GitHub API:
 
 ## Props
 
-| Prop              | Type      | Description                                       | Default |
-|-------------------|-----------|---------------------------------------------------|---------|
-| `repository`      | `Object`  | The JSON response object from the GitHub repository API. No need for manual data mapping. | -       |
-| `showCodeLanguage`| `boolean` | Show the primary language of the repository.      | `true`  |
-| `showLicense`     | `boolean` | Show the license information.                      | `true`  |
-| `showIssues`      | `boolean` | Show the number of open issues.                   | `true`  |
-| `showStars`       | `boolean` | Show the star count.                              | `true`  |
-| `showForks`       | `boolean` | Show the fork count.                              | `true`  |
-| `showUpdatedAt`   | `boolean` | Show the last update timestamp.                   | `true`  |
-| `showCodeColorBar`| `boolean` | Show a color bar representing the code language.  | `true`  |
-| `repoInfoColor`   | `string`  | Text color for the repository information.        | `'grey'`|
-| `darkMode`        | `boolean` | Enable dark mode for the card.                    | `false` |
+| Prop               | Type      | Description                                                                               | Default  |
+| ------------------ | --------- | ----------------------------------------------------------------------------------------- | -------- |
+| `repository`       | `Object`  | The JSON response object from the GitHub repository API. No need for manual data mapping. | -        |
+| `showCodeLanguage` | `boolean` | Show the primary language of the repository.                                              | `true`   |
+| `showLicense`      | `boolean` | Show the license information.                                                             | `true`   |
+| `showIssues`       | `boolean` | Show the number of open issues.                                                           | `true`   |
+| `showStars`        | `boolean` | Show the star count.                                                                      | `true`   |
+| `showForks`        | `boolean` | Show the fork count.                                                                      | `true`   |
+| `showUpdatedAt`    | `boolean` | Show the last update timestamp.                                                           | `true`   |
+| `showCodeColorBar` | `boolean` | Show a color bar representing the code language.                                          | `true`   |
+| `repoInfoColor`    | `string`  | Text color for the repository information.                                                | `'grey'` |
+| `darkMode`         | `boolean` | Enable dark mode for the card.                                                            | `false`  |
 
 ## Customization
 
