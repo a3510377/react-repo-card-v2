@@ -1,6 +1,6 @@
 {
   "name": "react-repo-card-v2",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A React component for the GitHub repository card",
   "main": "dist/index.js",
   "author": "a3510377 <a102009102009@gmail.com>",
