@@ -29,6 +29,10 @@ const RepoTitle = styled.div`
   font-weight: 600;
   margin-bottom: 8px;
   display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90%;
 `;
 
 const RepoSubtitle = styled.div`
@@ -42,6 +46,7 @@ const RepoSubtitle = styled.div`
 
 const RepoInfoContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: start;
 `;
 
