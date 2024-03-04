@@ -69,3 +69,5 @@ typings/
 
 # Dist
 dist/
+
+storybook-static/
