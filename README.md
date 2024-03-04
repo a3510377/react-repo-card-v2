@@ -2,6 +2,8 @@
 
 The `RepoCard` component is designed to display GitHub repository information in a clean, visually appealing card format. It supports both light and dark modes and can show various repository details, including stars, forks, license information, and last update time.
 
+__This is designed to solve display mutiple repository information in a single page without hitting the GitHub API rate limit. As we can [call the API of repository list once](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#list-repositories-for-a-user) and cache the list and then pass the response to the RepoCard component. (~~I just got block by rate limit when development page!!~~)__
+
 ## Features
 
 - Display GitHub repository details.
